@@ -26,18 +26,16 @@ app.use(bodyParser.json());
 // For Passport
 
 app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
-
 app.use(passport.initialize());
-
 app.use(passport.session()); // persistent login sessions
 
+// app.get('/', function(req, res) {
+//     res.send('Welcome to Passport with Sequelize');
+// });
 
-app.get('/', function(req, res) {
 
-    res.send('Welcome to Passport with Sequelize');
-
-});
-
+// -----------------------------------------------
+var htmlRoute = require('./routes/html.js')(app);
 
 //Models
 var models = require("./models");
