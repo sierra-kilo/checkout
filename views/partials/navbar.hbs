@@ -13,7 +13,9 @@
       </li>
     </ul>
     <div class="login">
-        {{#if !user}}
+        {{#if user}}
+            <a class="btn btn-info" href='logout'>Logout</a>
+        {{else}}
         <form id="signin" name="signin" method="post" action="signin">
             <label for="email">Email Address</label>
             <input class="text" name="email" type="text" />
@@ -21,8 +23,6 @@
             <input name="password" type="password" />
             <input class="btn" type="submit" value="Sign In" />
         </form>
-        {{else}}
-            <button type="button" name="button">Log Out</button>
         {{/if}}
     </div>
   </div>

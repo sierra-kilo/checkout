@@ -29,6 +29,10 @@ app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true}))
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    next()
+})
 // app.get('/', function(req, res) {
 //     res.send('Welcome to Passport with Sequelize');
 // });
