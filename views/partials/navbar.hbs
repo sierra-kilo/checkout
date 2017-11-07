@@ -1,25 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="dashboard">Weed Exchange</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Green Exchange</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="dashbaord">Dashboard </a>
+        <a class="nav-link" href="Dashboard">Dashboard</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="myPosts">My Posts</a>
       </li>
     </ul>
-    <div class="login">
+    <div class="nav navbar-nav navbar-right ml-auto">
         {{#if user}}
             <a class="btn btn-info" href='logout'>Logout</a>
         {{else}}
         <form id="signin" name="signin" method="post" action="signin">
-            <label for="email">Email Address</label>
+            <label style="color: white" for="email">Email Address</label>
             <input class="text" name="email" type="text" />
-            <label for="password">Password</label>
+            <label style="color: white" for="password">Password</label>
             <input name="password" type="password" />
             <input class="btn" type="submit" value="Sign In" />
         </form>
