@@ -17,6 +17,11 @@ module.exports = function(app, passport) {
         }
     ));
 
+    app.get('/newPost', isLoggedIn, authController.newPost);
+
+    app.get('/myPosts', isLoggedIn, authController.myPosts);
+
+
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();
