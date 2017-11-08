@@ -7,18 +7,33 @@
     <a href="#" class="btn btn-primary">Go somewhere</a> -->
 
     <form id="newPost" name="newPost" method="post" action="/newPost">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="email" />
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+            Sativa
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            Indica
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+            Hybrid
+          </label>
+        </div>
         <label for="strain">Strain Name</label>
         <input name="strain name" type="text" />
-        <label for="lastname">Lastname</label>
-        <input name="lastname" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
+        <div class="form-group">
+            <label for="exampleTextarea">Example textarea</label>
+            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        </div>
+
         <input class="btn" type="submit" value="Sign Up" />
     </form>
-
-
-
   </div>
 </div>
