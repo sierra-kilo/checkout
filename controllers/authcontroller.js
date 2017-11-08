@@ -12,8 +12,8 @@ exports.dashboard = function(req, res) {
     res.render('dashboard', { username: req.user.firstname });
 };
 
-exports.newPost = function(req, res) {
-    res.render('newPost');
+exports.post = function(req, res) {
+    res.render('post');
 };
 
 exports.myPosts = function(req, res) {

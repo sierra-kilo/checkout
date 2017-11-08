@@ -1,0 +1,48 @@
+
+<div class="card">
+  <h4 class="card-header">New Post</h4>
+  <div class="card-body">
+    <h4 class="card-title">Create new post info</h4>
+    <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+
+    <form id="post" name="post" method="post" action="/upload" enctype="multipart/form-data">
+
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="weed_type" id="exampleRadios1" value="sativa" checked>
+            Sativa
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="weed_type" id="exampleRadios2" value="indica">
+            Indica
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="weed_type" id="exampleRadios3" value="hybrid">
+            Hybrid
+          </label>
+        </div>
+        <div class="">
+            <label for="strain">Strain Name</label>
+            <input name="strain" type="text" />
+        </div>
+
+        <div class="">
+            <label for="image">Upload Image</label>
+            <input type="file" name="upl" />
+        </div>
+
+
+        <div class="">
+            <label for="description">Description</label>
+            <input type="textarea" class="form-control" id="description" rows="3"></input>
+        </div>
+
+        <input class="btn btn-success" type="submit" value="Post" />
+    </form>
+  </div>
+</div>
