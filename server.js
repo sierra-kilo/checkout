@@ -19,6 +19,7 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 
+app.use('/static', express.static('static'));
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

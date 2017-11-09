@@ -38,12 +38,24 @@ module.exports = function(app, passport) {
             description: req.body.description,
             date_created: new Date(),
             upl: req.file.filename,
+            userId: req.user.id,
         }).then(function(post) {
     	    console.log('post: ', post);
             res.redirect('/posts')
         }).catch(next);
     });
-    app.get('/posts', isLoggedIn, authController.myPosts);
+    app.get('/posts', isLoggedIn, function(req, res, next) {
+        Post.findAll({
+            where: {
+                userId: req.user.id,
+            }
+        }).then(function(postList) {
+           const model = {
+             postList,
+           };
+           res.render('posts', model);
+        });
+    });
     
     app.get('/dashboard', isLoggedIn, authController.dashboard);
 
