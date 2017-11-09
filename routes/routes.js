@@ -6,6 +6,10 @@ var multer  = require('multer');
 
 
 module.exports = function(app, passport) {
+    app.get('/', function(req, res) {
+        res.render('splash')
+    });
+
     app.get('/signup', authController.signup);
     app.get('/signin', authController.signin);
     app.post('/signup', passport.authenticate('local-signup', {

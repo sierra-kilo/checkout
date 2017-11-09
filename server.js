@@ -29,8 +29,6 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // -----------------------------------------------
-var htmlRoute = require('./routes/html.js')(app);
-
 //Models
 var models = require("./models");
 
@@ -48,8 +46,7 @@ app.use(function (req, res, next) {
     next()
 });
 //Routes
-var authRoute = require('./routes/auth.js')(app, passport);
-
+var authRoute = require('./routes/routes.js')(app, passport);
 
 app.listen(port, function (err) {
 
