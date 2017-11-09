@@ -13,14 +13,23 @@ module.exports = function(app, passport) {
         res.render('splash')
     });
 
-    app.get('/signup', authController.signup);
     app.get('/signin', authController.signin);
-    app.post('/signup', passport.authenticate('local-signup', {
+    app.post('/signin', passport.authenticate('local-signin', {
             successRedirect: '/dashboard',
             failureRedirect: '/'
         }
     ));
 
+    app.post('/signup', passport.authenticate('local-signup', {
+            successRedirect: '/dashboard',
+            failureRedirect: '/'
+        }
+    ));
+    app.get('/signup', authController.signup);
+
+    app.get('/logout', authController.logout);
+    
+    app.get('/post', isLoggedIn, authController.post);
     app.post('/upload', multer({ dest: path.resolve(__dirname, '../static/img/') }).single('upl'), function(req, res, next){
         console.log('req.body', req.body);
         Post.create({
@@ -34,19 +43,9 @@ module.exports = function(app, passport) {
             res.redirect('/posts')
         }).catch(next);
     });
-
-    app.get('/dashboard', isLoggedIn, authController.dashboard);
-    app.get('/logout', authController.logout);
-    app.post('/signin', passport.authenticate('local-signin', {
-            successRedirect: '/dashboard',
-            failureRedirect: '/'
-        }
-    ));
-
-    app.get('/post', isLoggedIn, authController.post);
-
     app.get('/posts', isLoggedIn, authController.myPosts);
-
+    
+    app.get('/dashboard', isLoggedIn, authController.dashboard);
 
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
